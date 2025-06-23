@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QIH</title>
+
+    <!-- 1. MEMANGGIL BOOTSTRAP CSS (SESUAI MATERI KULIAH) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Menambahkan Favicon (Logo di Tab Browser) -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/7t6BQH7F/Logo-Title.png">
+
+    <!-- 2. MEMANGGIL FONT TAMBAHAN & FONT AWESOME (IKON) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- 3. CSS INTERNAL MINIMAL -->
+    <style>
+        /* CSS ini sangat minimal, sebagian besar styling diambil dari Bootstrap */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa; /* Warna latar belakang dari Bootstrap */
+        }
+
+        h1, h2, h3, .navbar-brand, .card-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Mengganti gambar background menjadi banner */
+        .banner-atas {
+            position: relative;
+            background: url('https://decorateur-oriental.fr/cdn/shop/articles/les-bases-de-lislam-les-5-piliers-et-les-croyances-fondamentales-930441.jpg?v=1735894706&width=1100') no-repeat center center;
+            background-size: cover;
+            color: white; /* Mengubah warna teks default menjadi putih */
+        }
+
+        /* Lapisan overlay transparan untuk banner */
+        .banner-atas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+            z-index: 1;
+        }
+
+        /* Memastikan konten banner berada di atas overlay */
+        .banner-atas .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .kotak-keunggulan .fa-stack {
+            color: #198754; /* Warna ikon dari Bootstrap (success) */
+            margin-bottom: 1rem;
+        }
+
+        .carousel-item img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Memberi jarak di atas section saat di-scroll agar tidak tertutup navbar */
+        section[id] {
+            scroll-margin-top: 60px; 
+        }
+
+        /* Mengecilkan area klik tombol kontrol carousel agar tidak menutupi kartu */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =================================================================
+         BAGIAN 1: NAVBAR (MENU ATAS)
+         ================================================================= -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+        <div class="container">
+            <!-- PERUBAHAN: Menambahkan logo di samping teks -->
+            <a class="navbar-brand fs-4 d-flex align-items-center" href="#">
+                <img src="https://i.ibb.co/7t6BQH7F/Logo-Title.png" alt="Logo Qalam Hub" width="32" height="32" class="me-2">
+                Qalam Islamic Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang-kami">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kursus">Kursus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#materi">Kajian Rutin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary">Masuk / Daftar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =================================================================
+         BAGIAN 2: GAMBAR PEMBUKA (BANNER)
+         ================================================================= -->
+    <section id="beranda" class="banner-atas py-5">
+        <div class="container text-center py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold text-white">Membuka Gerbang Ilmu Islam Modern</h1>
+                    <p class="lead fw-normal text-white-75 mt-3 mb-4">
+                        Jelajahi berbagai kursus Islam yang komprehensif, disajikan dengan metode yang mudah dipahami dan relevan untuk kehidupan masa kini.
+                    </p>
+                    <a href="#kursus" class="btn btn-success btn-lg">Mulai Belajar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         BAGIAN 3: TENTANG KAMI
+         ================================================================= -->
+    <section id="tentang-kami" class="py-5">
+        <div class="container">
+            <!-- Penjelasan Tentang Kami -->
+            <div class="row align-items-center mb-5 gx-lg-5">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://img.okezone.com/content/2020/05/08/615/2211265/5-masjid-paling-indah-di-timur-tengah-RhAJ3UYOHf.jpg" class="img-fluid rounded shadow-sm" alt="Masjid Megah">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold">Selamat Datang di pusat pembelajaran "Qalam Islamic Hub"</h2>
+                    <p class="text-muted">
+                        Kami adalah platform pendidikan Islam modern yang dirancang untuk memudahkan Anda belajar agama di mana saja dan kapan saja. Kami menyajikan materi-materi relevan yang disampaikan oleh para ahli dengan pendekatan yang inovatif.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Keunggulan -->
+            <h3 class="text-center fw-bold mb-4">Mengapa Memilih Kami?</h3>
+            <div class="row text-center g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 kotak-keunggulan">
+                        <div class="card-body">
+                            <span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x text-light"></i><i class="fas fa-laptop-code fa-stack-1x"></i></span>
+                            <h5 class="card-title fw-bold">Fleksibel</h5>
+                            <p class="card-text text-muted">Belajar kapan saja & di mana saja.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 kotak-keunggulan">
+                        <div class="card-body">
+                             <span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x text-light"></i><i class="fas fa-chalkboard-teacher fa-stack-1x"></i></span>
+                            <h5 class="card-title fw-bold">Ahli</h5>
+                            <p class="card-text text-muted">Diajarkan oleh pakar di bidangnya.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 kotak-keunggulan">
+                        <div class="card-body">
+                            <span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x text-light"></i><i class="fas fa-book-open fa-stack-1x"></i></span>
+                            <h5 class="card-title fw-bold">Komprehensif</h5>
+                            <p class="card-text text-muted">Materi lengkap dari dasar.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 kotak-keunggulan">
+                        <div class="card-body">
+                           <span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x text-light"></i><i class="fas fa-users fa-stack-1x"></i></span>
+                            <h5 class="card-title fw-bold">Komunitas</h5>
+                            <p class="card-text text-muted">Terhubung dengan sesama pembelajar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         BAGIAN 4: KURSUS PILIHAN
+         ================================================================= -->
+    <section id="kursus" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Kursus Pilihan Kami</h2>
+            <div id="courseCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="https://cdn1-production-images-kly.akamaized.net/0bykEcsSLXxABBPnW02ZB0VefnU=/800x450/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3141976/original/029125200_1591094091-ramadan-3384043_1280.jpg" class="card-img-top" alt="Fiqih Dasar">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Fiqih Dasar untuk Pemula</h5>
+                                        <p class="card-text text-muted">Pelajari dasar-dasar fiqih ibadah sehari-hari.</p>
+                                        <div class="text-center mt-auto">
+                                            <a href="#" class="btn btn-outline-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="https://religionmediacentre.org.uk/wp-content/uploads/2020/09/stacey-franco-ex9KQrN1mj0-unsplash-scaled-1-1024x683.jpg" class="card-img-top" alt="Sejarah Islam">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Sejarah Peradaban Islam</h5>
+                                        <p class="card-text text-muted">Jejak kegemilangan Islam dari masa ke masa.</p>
+                                        <div class="text-center mt-auto">
+                                            <a href="#" class="btn btn-outline-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="https://miro.medium.com/v2/resize:fit:1358/0*kw83wgt_Pgnq6DMK" class="card-img-top" alt="Tahsin Quran">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Tahsin Al-Qur'an</h5>
+                                        <p class="card-text text-muted">Perbaiki bacaan Al-Qur'an dengan metode tartil.</p>
+                                        <div class="text-center mt-auto">
+                                            <a href="#" class="btn btn-outline-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                       <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20240204/pngtree-read-quran-ramadan-culture-religion-muslim-image_15596647.png" class="card-img-top" alt="Tafsir Quran">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Pengantar Tafsir Al-Qur'an</h5>
+                                        <p class="card-text text-muted">Memahami makna dan pesan ilahi dalam Al-Qur'an.</p>
+                                        <div class="text-center mt-auto">
+                                            <a href="#" class="btn btn-outline-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="https://images.squarespace-cdn.com/content/v1/5d016c1ba9f2e7000120c08c/1560579210527-7LDCZH62S91OLOJIKAE9/AdobeStock_87517185.jpeg" class="card-img-top" alt="Bahasa Arab">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Bahasa Arab Dasar</h5>
+                                        <p class="card-text text-muted">Kuasai kunci untuk memahami sumber-sumber Islam.</p>
+                                        <div class="text-center mt-auto">
+                                            <a href="#" class="btn btn-outline-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-4">
+                                <div class="card h-100">
+                                    <img src="https://img.freepik.com/premium-photo/muslim-young-man-teaching-his-son-read-quran_175634-3669.jpg" class="card-img-top" alt="Akidah Akhlak">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Akidah dan Akhlak</h5>
+                                        <p class="card-text text-muted">Membangun pondasi keyakinan dan etika Muslim.</p>
+                                        <div class="text-center mt-auto">
+                                            <a href="#" class="btn btn-outline-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#courseCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#courseCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-success">Lihat Kursus Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         BAGIAN 5: JADWAL KAJIAN
+         ================================================================= -->
+    <section id="materi" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Kajian dan Rutinitas Rutin</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h4 class="fw-bold mb-3">Tabel Jadwal Kajian Rutin</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Hari</th>
+                                    <th>Materi Kajian</th>
+                                    <th>Sesi 1 (Pagi)</th>
+                                    <th>Sesi 2 (Malam)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Senin</td><td>Fiqih Dasar</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                                <tr><td>Selasa</td><td>Sejarah Islam</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                                <tr><td>Rabu</td><td>Tahsin Al-Qur'an</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                                <tr><td>Kamis</td><td>Tafsir Al-Qur'an</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                                <tr><td>Jumat</td><td>Bahasa Arab</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                                <tr><td>Sabtu</td><td>Akidah Akhlak</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                                <tr class="table-success"><td>Ahad</td><td>Kajian Tematik</td><td>Ba'da Subuh</td><td>Ba'da Isya</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         BAGIAN 6: AJAKAN BERTINDAK
+         ================================================================= -->
+    <section id="blog" class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <!-- PERUBAHAN: Teks diubah dan formulir dihapus -->
+            <h2 class="fw-bold">Siap Memulai Perjalanan Menuntut Ilmu Anda?</h2>
+            <p>Hubungi kontak kami di bawah ini. Daftar sekarang dan dapatkan informasi terbaru dari kami.</p>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         BAGIAN 7: FOOTER (BAGIAN BAWAH)
+         ================================================================= -->
+    <footer id="kontak" class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Qalam Islamic Hub</h5>
+                    <p class="text-white-50">Platform edutech yang berkomitmen menyediakan akses pendidikan Islam yang modern, relevan, dan mudah dijangkau.</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5 class="fw-bold">Tautan</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#kursus" class="text-white-0 text-decoration-none">Kursus</a></li>
+                        <li><a href="#kontak" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li><a href="#kontak" class="text-white-50 text-decoration-none">Privasi</a></li>
+                    </ul>
+                </div>
+                 <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold">Kontak Kami</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-white-50"><i class="fas fa-envelope me-2"></i> info@qalamhub.com</li>
+                        <li class="text-white-50"><i class="fas fa-phone me-2"></i> +62 812-3456-7890</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold">Ikuti Kami</h5>
+                    <div>
+                        <a href="#" class="text-white-50 me-2 fs-4"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white-50 me-2 fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50 me-2 fs-4"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50 me-2 fs-4"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-white-50">
+            <div class="text-center text-white-50">
+                <p>&copy; 2025 Qalam Islamic Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- MEMANGGIL BOOTSTRAP JS (WAJIB UNTUK KOMPONEN INTERAKTIF) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
